@@ -53,9 +53,9 @@ class HomeController extends Controller
         );
 
         // ============ SUMMARY ROW 2 CHART ==================
+        $activePage = 'dashboard';
 
-
-        return view('dashboard' , compact('trades' , 'point_stats'));
+        return view('dashboard' , compact('trades' , 'point_stats' , 'activePage'));
     }
 
     public function balance_chart(){

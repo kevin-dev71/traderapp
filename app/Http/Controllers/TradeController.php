@@ -22,8 +22,9 @@ class TradeController extends Controller
             ->latest()
             ->paginate(25);
 
+        $activePage = 'mistrades';
 
-        return view('trades.index' , compact('trades'));
+        return view('trades.index' , compact('trades' , 'activePage'));
 
     }
 
@@ -41,7 +42,8 @@ class TradeController extends Controller
     public function create () {
         $trade = new Trade;
         $btnText = __("Crear Trade");
-        return view('trades.form', ['trade' => $trade , 'btnText' => $btnText]);
+        $activePage = 'mistrades';
+        return view('trades.form', ['trade' => $trade , 'btnText' => $btnText , 'activePage' => $activePage]);
     }
 
     public function store (TradeRequest $trade_request) {
@@ -55,7 +57,8 @@ class TradeController extends Controller
     public function edit ($id) {
         $trade = Trade::with(['instrument'])->whereId($id)->first();
         $btnText = __("Actualizar Trade");
-        return view('trades.form', ['trade' => $trade , 'btnText' => $btnText]);
+        $activePage = 'mistrades';
+        return view('trades.form', ['trade' => $trade , 'btnText' => $btnText , 'activePage' => $activePage]);
     }
 
     public function update (TradeRequest $trade_request, Trade $trade) {

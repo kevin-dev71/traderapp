@@ -1,0 +1,1 @@
+<a href="{{ route('trades.edit' , ['trade_id' => $trade->id])  }}" class="btn btn-warning"><i class="fa fa-pencil"></i>Editar</a>
